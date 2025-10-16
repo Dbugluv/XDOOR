@@ -18,7 +18,7 @@ export const useResponsive = () => {
     // const isRealTablet = /ipad|android(?=.*mobile)/i.test(userAgent)
 
     // 控制台检测逻辑
-    const isDevTools = process.env.NODE_ENV === 'development' ||
+    const isDevTools = 
       (width < 768 && 
       height < 600 && 
       !isRealMobile && 

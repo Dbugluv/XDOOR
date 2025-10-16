@@ -1,10 +1,10 @@
 import { Link, useLocation } from 'react-router-dom'
-import { useResponsive } from '../../hooks/useResponsive'
+// import { useResponsive } from '../../hooks/useResponsive'
 import './index.scss'
 
 export const Navigation = () => {
   const location = useLocation()
-  const { isMobile } = useResponsive()
+  // const { isMobile } = useResponsive()
 
   const navItems = [
     { path: '/home', label: '首页' },
@@ -13,7 +13,7 @@ export const Navigation = () => {
   ]
 
   return (
-    <nav className={`navigation ${isMobile ? 'navigation--mobile' : 'navigation--desktop'}`}>
+    <nav className={`navigation`}>
       <div className="navigation__brand">
         <Link to="/">Your Logo</Link>
       </div>
