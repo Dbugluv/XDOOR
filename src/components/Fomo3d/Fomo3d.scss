@@ -1,0 +1,37 @@
+.c-fomo3d {
+  padding: 0 0 px2vw(100);
+  color: #fff;
+
+  .card {
+    background: #27262c;
+  }
+
+  .card-title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+
+    span {
+      padding: 0 3px;
+      color: $lightColor;
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+
+  .card-text {
+    text-align: center;
+  }
+
+  .card-body {
+    color: #fff;
+  }
+
+  .countdown-wrap {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 0 0 px2vwMb(100);
+  }
+}

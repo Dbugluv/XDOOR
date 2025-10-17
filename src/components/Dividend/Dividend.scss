@@ -1,0 +1,22 @@
+.c-dividend {
+  padding: px2vw(200) 0 px2vw(120);
+  color: #fff;
+
+  .card {
+    background: #27262c;
+  }
+
+  .card-title {
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .card-body {
+    color: #fff;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: px2vwMb(200) 0 px2vwMb(120);
+  }
+}

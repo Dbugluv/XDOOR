@@ -1,0 +1,29 @@
+.c-header {
+  color: #fff;
+
+  .navbar {
+    background: #27262c;
+    border-bottom: rgba(255, 255, 255, 0.15) solid 1px;
+  }
+
+  .navbar-brand {
+    margin-right: px2vw(100);
+  }
+
+  .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .navbar-nav {
+    a {
+      color: #fff;
+
+      &:hover,
+      &:focus,
+      &.active {
+        color: $lightColor;
+      }
+    }
+  }
+}

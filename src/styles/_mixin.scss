@@ -1,0 +1,453 @@
+@mixin transition($time: 0.4s) {
+  transition: all ease $time;
+}
+
+@mixin ellipsis() {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@mixin ellipsisLine($line: 2, $height: auto, $maxHeight: none) {
+  height: $height;
+  max-height: $maxHeight;
+  display: block;
+  display: -webkit-box;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+@mixin input-placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin textarea-placeholder-color($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+
+  &::-moz-placeholder {
+    color: $color;
+  }
+
+  &:-moz-placeholder {
+    color: $color;
+  }
+
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+}
+
+@mixin border($color, $val, $type: solid) {
+  border: $color $type $val;
+}
+
+@mixin bg($url, $size: cover) {
+  background: url($url) center no-repeat;
+  background-size: $size;
+}
+
+@mixin tl($top: 0, $left: 0) {
+  top: $top;
+  left: $left;
+}
+
+@mixin tr($top: 0, $right: 0) {
+  top: $top;
+  right: $right;
+}
+
+@mixin bl($bottom: 0, $left: 0) {
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin br($bottom: 0, $right: 0) {
+  bottom: $bottom;
+  right: $right;
+}
+
+//定位左上角
+@mixin absolute($top: 0, $left: 0) {
+  position: absolute;
+
+  @include tl($top, $left);
+}
+
+@mixin fixed {
+  position: fixed;
+
+  @include tl();
+}
+
+//定位右上角
+@mixin absolute-tr($top: 0, $right: 0) {
+  position: absolute;
+
+  @include tr($top, $right);
+}
+
+@mixin fixed-tr($top: 0, $right: 0) {
+  position: fixed;
+
+  @include tr($top, $right);
+}
+
+//定位左下角
+@mixin absolute-bl($bottom: 0, $left: 0) {
+  position: absolute;
+
+  @include bl($bottom, $left);
+}
+
+@mixin fixed-bl($bottom: 0, $left: 0) {
+  position: fixed;
+
+  @include bl($bottom, $left);
+}
+
+@mixin fixed-br($bottom: 0, $right: 0) {
+  position: fixed;
+
+  @include br($bottom, $right);
+}
+
+//定位右下角
+@mixin absolute-br($bottom: 0, $right: 0) {
+  position: absolute;
+
+  @include br($bottom, $right);
+}
+
+//定位上下左右居中
+@mixin center {
+  position: absolute;
+
+  @include tl(50%, 50%);
+
+  transform: translate(-50%, -50%);
+}
+
+@mixin fixed-center {
+  position: fixed;
+
+  @include tl(50%, 50%);
+
+  transform: translate(-50%, -50%);
+}
+
+//定位垂直居中
+@mixin cv {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//定位水平居中
+@mixin cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width: 100%, $height: 100%) {
+  width: $width;
+  height: $height;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between) {
+  display: flex;
+  justify-content: $type;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fja($type: space-between, $a-type: start) {
+  display: flex;
+  justify-content: $type;
+  align-items: $a-type;
+}
+
+// after清除浮动
+@mixin afterClear {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+// 向上三角形
+@mixin triangleT {
+  width: 0;
+  height: 0;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  border-bottom: 8px solid #000;
+}
+
+// 背景色线性渐变
+@mixin linearGradient($startColor: #fff800, $endColor: #f60, $angle: 180deg) {
+  background-image: -moz-linear-gradient($angle, $startColor, $endColor);
+  background-image: linear-gradient($angle, $startColor, $endColor);
+}
+
+@mixin linearGradient2(
+  $startColor: #fff800,
+  $middleColor: #e2e1ce,
+  $endColor: #f60,
+  $angle: 180deg
+) {
+  background-image: -moz-linear-gradient(
+    $angle,
+    $startColor,
+    $middleColor,
+    $endColor
+  );
+  background-image: linear-gradient(
+    $angle,
+    $startColor,
+    $middleColor,
+    $endColor
+  );
+}
+
+// 文字颜色线性渐变
+@mixin clipTextLinearGradient(
+  $startColor: #fef2dd,
+  $endColor: #f5e2c1,
+  $angle: 90deg
+) {
+  background-image: -moz-linear-gradient($angle, $startColor, $endColor);
+  background-image: linear-gradient($angle, $startColor, $endColor);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@mixin clipTextLinearGradient2(
+  $startColor: #fef2dd,
+  $middleColor: #e2e1ce,
+  $endColor: #f5e2c1,
+  $angle: 90deg
+) {
+  background-image: -moz-linear-gradient(
+    $angle,
+    $startColor,
+    $middleColor,
+    $endColor
+  );
+  background-image: linear-gradient(
+    $angle,
+    $startColor,
+    $middleColor,
+    $endColor
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@mixin clipTextLinearGradient3(
+  $startColor: #fef2dd,
+  $afterStartColor: #fef2dd,
+  $middleColor: #e2e1ce,
+  $endColor: #f5e2c1,
+  $angle: 90deg
+) {
+  background-image: -moz-linear-gradient(
+    $angle,
+    $startColor,
+    $afterStartColor,
+    $middleColor,
+    $endColor
+  );
+  background-image: linear-gradient(
+    $angle,
+    $startColor,
+    $afterStartColor,
+    $middleColor,
+    $endColor
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+@mixin setSkin($selector) {
+  #{$selector} {
+    &.skin-black {
+      color: $whiteColor;
+
+      > .content-wrap,
+      > .content {
+        background-color: $blackColor;
+      }
+
+      .c-button.none-bg {
+        border-color: $textWhiteColor;
+
+        a {
+          color: $textWhiteColor;
+        }
+      }
+
+      .c-button.btn-text a {
+        color: $whiteColor;
+      }
+    }
+
+    &.skin-gray {
+      color: $textBlackColor;
+
+      > .content-wrap,
+      > .content {
+        background-color: $grayColor;
+      }
+
+      .c-button.btn-text a {
+        color: $themeColor;
+      }
+    }
+
+    &.skin-white {
+      color: $textBlackColor;
+
+      > .content-wrap,
+      > .content {
+        background-color: $whiteColor;
+      }
+
+      .c-button.btn-text a {
+        color: $themeColor;
+      }
+    }
+
+    &.bg-black {
+      background-color: $blackColor;
+    }
+
+    &.bg-gray {
+      background-color: $grayColor;
+    }
+
+    &.bg-white {
+      background-color: $whiteColor;
+    }
+  }
+}
+
+@mixin marginBottomSpacing($selector) {
+  #{$selector} {
+    &.mbs-size-lg {
+      padding-bottom: px2vw($pdpt_pc_lg_bottom);
+    }
+
+    &.mbs-size-md {
+      padding-bottom: px2vw($pdpt_md_bottom);
+    }
+  }
+}
+
+@mixin paddingSpacing($selector) {
+  #{$selector} {
+    &.ps-size-lg {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vw($pdpt_pc_lg);
+        padding-bottom: px2vw($pdpt_pc_lg);
+      }
+    }
+
+    &.ps-size-md {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vw($pdpt_pc_md);
+        padding-bottom: px2vw($pdpt_pc_md);
+      }
+    }
+
+    &.ps-size-sm {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vw($pdpt_pc_sm);
+        padding-bottom: px2vw($pdpt_pc_sm);
+      }
+    }
+
+    /*&.padding-spacing {
+      >.content-wrap,
+      >.content {
+        padding-top: 100px;
+        padding-bottom: 100px;
+      }
+    }*/
+
+    /*@media screen and (max-width: 1440px) {
+      &.padding-spacing {
+        >.content-wrap,
+        >.content {
+          padding-top: 80px;
+          padding-bottom: 80px;
+        }
+      }
+    }*/
+  }
+
+  .is-vertical #{$selector} {
+    &.ps-size-lg {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vwMb($pdpt_mb_lg);
+        padding-bottom: px2vwMb($pdpt_mb_lg);
+      }
+    }
+
+    &.ps-size-md {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vwMb($pdpt_mb_md);
+        padding-bottom: px2vwMb($pdpt_mb_md);
+      }
+    }
+
+    &.ps-size-sm {
+      > .content-wrap,
+      > .content {
+        padding-top: px2vwMb($pdpt_mb_sm);
+        padding-bottom: px2vwMb($pdpt_mb_sm);
+      }
+    }
+
+    /*&.padding-spacing {
+      >.content-wrap,
+      >.content {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+    }*/
+
+    /*@media screen and (max-width: 767px) {
+      &.padding-spacing {
+        >.content-wrap,
+        >.content {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+      }
+    }*/
+  }
+}

@@ -1,0 +1,29 @@
+.claim-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .tab-box {
+    width: 70%;
+  }
+
+  .tab-content {
+    text-align: center;
+  }
+
+  .text {
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .btn {
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 767px) {
+    .tab-box {
+      width: 100%;
+    }
+  }
+}

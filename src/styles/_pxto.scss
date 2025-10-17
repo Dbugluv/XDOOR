@@ -1,0 +1,46 @@
+@use "sass:math";
+
+// =============================
+// ⚙️ 基础配置
+// =============================
+$percent-base: 1920 !default;
+$rem-base: 750 !default;
+$vw-base: 1920 !default;
+$vw-mb-base: 750 !default;
+
+// =============================
+// 🧮 工具函数
+// =============================
+
+// 去除单位（返回纯数字）
+@function strip-units($number) {
+  // 防止除以 0 的情况
+  @if $number == 0 {
+    @return 0;
+  }
+  @return math.div($number, ($number * 0 + 1));
+}
+
+// =============================
+// 📐 转换函数
+// =============================
+
+// px → 百分比 (%)
+@function pxtoper($value, $base-value: $percent-base) {
+  @return math.div($value, $base-value) * 100%;
+}
+
+// px → rem
+@function px2rem($value, $base-value: $rem-base) {
+  @return math.div($value, $base-value) * 10rem;
+}
+
+// px → vw (桌面端)
+@function px2vw($value, $base-value: $vw-base) {
+  @return math.div(strip-units($value), $base-value) * 100vw;
+}
+
+// px → vw (移动端)
+@function px2vwMb($value, $base-value: $vw-mb-base) {
+  @return math.div(strip-units($value), $base-value) * 100vw;
+}
