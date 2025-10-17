@@ -7,7 +7,7 @@ function App() {
   return (
     <ResponsiveLayout>
       <Navigation />
-      <main className="app-main">
+      <main className='app-main'>
         <Outlet />
       </main>
     </ResponsiveLayout>

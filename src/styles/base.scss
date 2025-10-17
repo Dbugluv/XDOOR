@@ -19,10 +19,9 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: $font-family-base;
-  color: #333;
-  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
 }
 
 #root {
@@ -34,7 +33,7 @@ body {
 a {
   color: $primary-color;
   text-decoration: none;
-  
+
   &:hover {
     text-decoration: underline;
   }

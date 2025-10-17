@@ -13,18 +13,20 @@ export const useResponsive = () => {
     const userAgent = navigator.userAgent.toLowerCase()
 
     // 用户代理检测
-    const isRealMobile = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)
-    const isRealTablet = false; // 暂时不考虑平板
+    const isRealMobile =
+      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
+        userAgent
+      )
+    const isRealTablet = false // 暂时不考虑平板
     // const isRealTablet = /ipad|android(?=.*mobile)/i.test(userAgent)
 
     // 控制台检测逻辑
-    const isDevTools = 
-      (width < 768 && 
-      height < 600 && 
-      !isRealMobile && 
-      !isRealTablet)
+    const isDevTools =
+      width < 768 && height < 600 && !isRealMobile && !isRealTablet
 
-    console.log(`UA: ${userAgent}, 真实移动设备: ${isRealMobile}, 控制台 isDevTools: ${isDevTools}`)
+    console.log(
+      `UA: ${userAgent}, 真实移动设备: ${isRealMobile}, 控制台 isDevTools: ${isDevTools}`
+    )
 
     if (isDevTools) {
       return 'desktop' // 强制识别为桌面端
@@ -44,11 +46,11 @@ export const useResponsive = () => {
     const updateDeviceType = () => {
       const type = detectRealDevice()
       setDeviceType(type)
-      
+
       // 应用字体大小
       const docEl = document.documentElement
       const width = window.innerWidth
-      
+
       if (type === 'mobile') {
         docEl.style.fontSize = 100 * (width / 750) + 'px'
       } else {
@@ -65,7 +67,7 @@ export const useResponsive = () => {
     }
 
     window.addEventListener('resize', handleResize)
-    
+
     return () => {
       window.removeEventListener('resize', handleResize)
       clearTimeout(resizeTimer)
@@ -77,6 +79,6 @@ export const useResponsive = () => {
     isMobile: deviceType === 'mobile',
     isTablet: deviceType === 'tablet',
     isDesktop: deviceType === 'desktop',
-    screenWidth: window.innerWidth
+    screenWidth: window.innerWidth,
   }
 }

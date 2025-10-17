@@ -12,11 +12,11 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Navigate to="/home" replace />
+        element: <Navigate to='/home' replace />,
       },
       {
         path: 'home',
-        element: <HomePage />
+        element: <HomePage />,
       },
       // {
       //   path: 'about',
@@ -30,6 +30,6 @@ export const router = createBrowserRouter([
       //   path: '*',
       //   element: <NotFoundPage />
       // }
-    ]
-  }
+    ],
+  },
 ])

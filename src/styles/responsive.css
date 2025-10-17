@@ -18,7 +18,7 @@
 
 /* 移动端组件使用 rem 单位 */
 .device-mobile .responsive-component {
-  width: 6.25rem;  /* 100px */
+  width: 6.25rem; /* 100px */
   height: 3.125rem; /* 50px */
   padding: 0.625rem; /* 10px */
   font-size: 0.875rem; /* 14px */
@@ -51,7 +51,6 @@
   max-width: 1024px;
   margin: 0 auto;
   min-height: 100vh;
-  background-color: #f9f9f9;
 }
 
 /* 通用样式 */
@@ -76,7 +75,8 @@
   .mobile-only {
     display: block;
   }
-  .desktop-only, .tablet-only {
+  .desktop-only,
+  .tablet-only {
     display: none;
   }
 }
@@ -85,7 +85,8 @@
   .tablet-only {
     display: block;
   }
-  .desktop-only, .mobile-only {
+  .desktop-only,
+  .mobile-only {
     display: none;
   }
 }
@@ -94,7 +95,8 @@
   .desktop-only {
     display: block;
   }
-  .mobile-only, .tablet-only {
+  .mobile-only,
+  .tablet-only {
     display: none;
   }
 }

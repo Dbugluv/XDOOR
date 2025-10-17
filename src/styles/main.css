@@ -3,7 +3,7 @@
   html {
     font-size: 16px; /* 移动端基准字体大小 */
   }
-  
+
   .mobile-layout {
     /* 移动端特定样式 */
     max-width: 100%;
@@ -16,7 +16,7 @@
   html {
     font-size: 16px; /* 固定字体大小，不随屏幕变化 */
   }
-  
+
   .pc-container {
     width: 1200px; /* 固定宽度 */
     margin: 0 auto;
