@@ -1,7 +1,132 @@
 .x-door-home-page {
+  overflow-y: auto;
+}
+
+.first-selection {
   background: url('@/assets/images/xdoorbg.png') no-repeat center center;
   background-size: cover;
+  // width: 1920px;
+  max-height: 1080px;
+  min-width: 1330px;
+}
+
+.second-selection {
+  height: 1000px;
+}
+
+.home-page-content {
+  position: relative;
+  padding: 136px 0px;
+  min-width: 1330px;
+  max-height: 1080px;
   width: 100vw;
-  height: 100vh;
-  overflow: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  .home-page-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .x-door-selection {
+    color: white;
+    min-width: 495px;
+    width: 588px;
+
+    .x-door-header {
+      width: 495px;
+      height: 75px;
+      left: 0px;
+      top: 0px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 75px;
+      color: #ffffff;
+      margin-bottom: 19px;
+    }
+
+    .x-door-paragraph {
+      height: 240px;
+      left: 0px;
+      right: 6px;
+      bottom: 21px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      color: #ffffff;
+    }
+  }
+
+  .x-center-column {
+    .x-door-cool-image {
+      position: absolute;
+      left: 43%;
+      top: 46%;
+      img {
+        width: 273px;
+      }
+    }
+  }
+
+  .fomo3d-area {
+    display: flex;
+    justify-content: center;
+
+    .click-area {
+      color: #ffffff;
+      width: 177px;
+      height: 50px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 50px;
+      text-align: end;
+      margin-top: 130px;
+
+      .arrow {
+        width: 56px;
+        height: 42px;
+      }
+    }
+
+    .fomo3dImg {
+      width: 342px;
+      height: 342px;
+    }
+  }
+
+  .jackpot-pool {
+    margin-top: 60px;
+    position: relative;
+
+    .x-ca-id {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 1px 10px;
+      background: #000000;
+      border: 1px solid #676767;
+      border-radius: 8px;
+
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 30px;
+      color: #f8d748;
+      flex-grow: 0;
+
+      img {
+        margin-left: 9px;
+      }
+    }
+  }
 }

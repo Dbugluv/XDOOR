@@ -52,8 +52,16 @@
     }
   }
 
+  appkit-button,
+  wui-connect-button > button {
+    width: 176px;
+    height: 41px;
+  }
+
   .x_door_navigation_wallet_button {
     display: flex;
+    position: relative;
+    z-index: 2;
     justify-content: center;
     align-items: center;
     width: 176px;

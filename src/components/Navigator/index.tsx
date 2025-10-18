@@ -9,11 +9,11 @@ export const Navigation = () => {
   // const { isMobile } = useResponsive()
 
   const navItems = [
-    { path: '/home', label: 'Airdrop' },
-    { path: '/about', label: 'Tokenomics' },
-    { path: '/contact', label: 'XD Time' },
-    { path: '/contact', label: 'Liquidity Rewards' },
-    { path: '/contact', label: 'FOMO 3D' },
+    { path: '/airdrop', label: 'Airdrop' }, // 空投
+    { path: '/tokenomics', label: 'Tokenomics' },
+    { path: '/xdtime', label: 'XD Time' },
+    { path: '/liquidityrewards', label: 'Liquidity Rewards' },
+    { path: '/fomo3d', label: 'FOMO 3D' },
   ]
 
   return (
@@ -36,6 +36,17 @@ export const Navigation = () => {
           </div>
         ))}
       </div>
+      <div
+        style={{
+          position: 'absolute',
+          right: '60px',
+          opacity: 0,
+          pointerEvents: 'auto',
+        }}
+      >
+        <appkit-button />
+      </div>
+
       <div className='x_door_navigation_wallet_button'>
         <div className='x_door_navigation_button_shadow'>Connect Wallet</div>
       </div>
