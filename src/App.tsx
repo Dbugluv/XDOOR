@@ -9,7 +9,6 @@ import { createAppKit } from '@reown/appkit/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Outlet } from 'react-router-dom'
 import { WagmiProvider } from 'wagmi'
-import { Navigation } from './components/Navigator'
 
 // 导入自定义组件
 // 公用组件
@@ -63,10 +62,7 @@ function App() {
     <>
       <WagmiProvider config={wagmiAdapter.wagmiConfig}>
         <QueryClientProvider client={queryClient}>
-          <Navigation />
-          <main className='app-main'>
-            <Outlet />
-          </main>
+          <Outlet />
         </QueryClientProvider>
       </WagmiProvider>
     </>

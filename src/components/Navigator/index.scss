@@ -1,14 +1,18 @@
 @use '../../styles/variables' as *;
 
 .x_door_navigation {
-  position: fixed;
-  z-index: 1;
+  position: absolute;
+  z-index: 2;
   height: 86px;
   width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   color: #ffffff;
   padding: 0 60px;
+  background: linear-gradient(180deg, #000000 36.06%, rgba(0, 0, 0, 0) 100%);
 
   .x_door_navigation_brand {
     display: flex;
