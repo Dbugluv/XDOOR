@@ -1,4 +1,5 @@
 .x-door-home-page {
+  width: 100vw;
   overflow: auto;
   color: #ffffff;
   font-family: Montserrat;
@@ -7,7 +8,10 @@
 }
 
 .common-selection-style {
-  padding: 0 12.3%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 clamp(20px, 8vw, 200px);
+  margin-bottom: 100px;
 }
 
 .home-page-content {
@@ -52,16 +56,24 @@
 
 .first-selection {
   position: relative;
-  background: url('@/assets/images/xdoorbg.png') no-repeat center center;
+  background: url('@/assets/images/xdoorbg.jpg') no-repeat center center;
   background-size: cover;
-  height: 100vh;
-  min-width: 1920px;
-  min-height: 880px;
   width: 100vw;
+
+  .center-hint {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 20px;
+  }
 
   .selection-content {
     display: flex;
     justify-content: space-between;
+    padding-top: 150px;
   }
 
   .introduction {
@@ -104,7 +116,6 @@
   .fomo3d-area {
     display: flex;
     justify-content: center;
-    margin-left: 120px;
     margin-top: 100px;
 
     .click-area {
@@ -132,8 +143,7 @@
   }
 
   .jackpot-pool {
-    margin-top: 60px;
-    margin-left: 120px;
+    margin-top: 10px;
     position: relative;
 
     .sub-title {
@@ -145,19 +155,53 @@
       letter-spacing: 0%;
     }
 
-    .x-door-header {
+    .x-door-paragraph {
       font-size: 40px;
       line-height: 50px;
+    }
+
+    .x-door-amount {
+      display: flex;
+      align-items: center;
+      font-size: 40px;
+      line-height: 50px;
+      /* 150.23 $OKB */
+
+      height: 70px;
+      font-size: 64px;
+      line-height: 70px;
+      text-align: center;
+
+      .text {
+        background: linear-gradient(180deg, #ffe555 0%, #c48a06 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        border-image-source: linear-gradient(
+          112.49deg,
+          #ffffff 29.73%,
+          #333333 95.28%
+        );
+
+        text-shadow: -2px 2px 4.1px #ffe555;
+      }
+
+      img {
+        margin-left: 14px;
+        width: 64px;
+        height: 64px;
+      }
     }
   }
 }
 
 .selection-content {
   position: relative;
-  padding: 136px 0px;
+  // padding: 0px;
   min-width: 1330px;
   max-height: 1080px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   align-items: flex-start;
 }
@@ -195,7 +239,6 @@
 
 .fourth-selection {
   color: #ffffff;
-  margin-bottom: 162px;
 
   .x-door-selection {
     display: flex;
@@ -259,8 +302,6 @@
 }
 
 .fifth-selection {
-  margin-bottom: 140px;
-
   .x-door-selection {
     display: flex;
     justify-content: space-between;
@@ -302,14 +343,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 137px;
-  height: 100vh;
   position: relative;
   background: url('@/assets/images/bottom-bg.png') no-repeat center center;
   background-size: cover;
-  height: 100vh;
   min-height: 1076px;
-  width: 100vw;
 
   .meme-wrapper {
     display: flex;
@@ -319,6 +356,7 @@
     }
   }
   .content {
+    width: 940px;
     margin-top: 50px;
     text-align: left;
     font-size: 16px;
@@ -327,6 +365,8 @@
 }
 
 .footer-wrapper {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   height: 225px;
   display: flex;

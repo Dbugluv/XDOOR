@@ -4,7 +4,7 @@
   position: absolute;
   z-index: 2;
   height: 86px;
-  width: 100%;
+  width: 100vw;
   top: 0;
   left: 0;
   right: 0;
@@ -31,7 +31,7 @@
 
   .x_door_navigation_menu {
     display: flex;
-    // flex: 1;
+    flex: 1;
     justify-content: space-around;
     list-style: none;
     margin-left: 40px;

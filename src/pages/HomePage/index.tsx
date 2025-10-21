@@ -6,6 +6,7 @@ import fomo3d from '@/assets/images/fomo3d.png'
 import meme1 from '@/assets/images/meme1.png'
 import meme2 from '@/assets/images/meme2.png'
 import nyanCat from '@/assets/images/nyan-cat.png'
+import okb from '@/assets/images/okb.png'
 import roadmapGif from '@/assets/images/roadmap.gif'
 import roadmap from '@/assets/images/roadmap.png'
 import tokenHeader from '@/assets/images/token-header.png'
@@ -41,18 +42,24 @@ const tokenDistribution = [
 ]
 
 export function HomePage() {
+  const copyId = () => {
+    navigator.clipboard.writeText('0x74836cC0E821A6bE18e407E6388E430B689C66e9')
+  }
+
   return (
     <div className='x-door-home-page'>
       <div className='first-selection common-selection-style'>
         <Navigation />
-
+        <div className='center-hint'>
+          Each XDOOR is a key, and every $XD holder is a Door Opener.
+        </div>
         <div className='home-page-content selection-content'>
           <div className='home-page-column'>
             <div className='x-door-selection introduction'>
               <div className='x-door-header'>What is XDOOR</div>
               <div className='x-ca-id'>
-                CA:0x74836cC0E821A6bE18e407E6388E430B689C66e9
-                <img src={copyIcon}></img>
+                CA:<span>{'0x74836cC0E821A6bE18e407E6388E430B689C66e9'}</span>
+                <img src={copyIcon} onClick={copyId}></img>
               </div>
               <div className='x-door-paragraph'>
                 The blockchain world is a vast universe of infinite
@@ -109,8 +116,14 @@ export function HomePage() {
 
             <div className='x-door-selection jackpot-pool'>
               <div className='sub-title'>JACKPOT POOL :</div>
-              <div className='x-door-header'>150.23 OKB</div>
-              <div className='x-door-paragraph'></div>
+              <div className='x-door-amount'>
+                <div className='text'>{150.23} $OKB</div>
+                <img src={okb} />
+              </div>
+              <div className='x-door-paragraph'>
+                The Clock Is Ticking — <br />
+                Dare to Be the Last?
+              </div>
             </div>
           </div>
         </div>
@@ -221,7 +234,7 @@ export function HomePage() {
       </div>
       <div className='common-selection-style footer-wrapper'>
         <div className='x-door'>XDOOR</div>
-        <div className='share-btn'>1 2 3 </div>
+        <div className='share-btn'> 1 2 3</div>
       </div>
     </div>
   )
