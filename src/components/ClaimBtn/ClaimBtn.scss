@@ -1,0 +1,20 @@
+.claim-btn {
+  width: 270px;
+  height: 72px;
+  bottom: 0px;
+  border-radius: 36px;
+  background: linear-gradient(90deg, #00cd3c 0%, #007e25 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 30px;
+  bottom: 42px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

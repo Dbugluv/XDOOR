@@ -1,0 +1,158 @@
+.sixth-selection {
+  color: #ffffff;
+  font-family: Montserrat;
+  font-weight: 700;
+  font-style: Bold;
+  letter-spacing: 0%;
+  margin-bottom: 300px;
+
+  .door-keeper-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 41px;
+    width: 720px;
+    text-align: center;
+
+    .p-header {
+      text-align: center;
+      width: 620px;
+      font-size: 40px;
+      line-height: 50px;
+      margin-bottom: 22px;
+    }
+
+    .p-description {
+      font-size: 20px;
+      line-height: 30px;
+
+      .divider {
+        height: 30px;
+      }
+    }
+  }
+  .count-down {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+
+    img {
+      width: 26px;
+      height: 29px;
+      margin-right: 11px;
+    }
+    font-size: 40px;
+    line-height: 50px;
+    color: #00cd3c;
+  }
+
+  .panel-wrapper {
+    width: 100%;
+    position: relative;
+    margin: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 37px;
+
+    .panel-card {
+      position: relative;
+      width: 100%;
+      height: 524px;
+      padding: 23px 58px;
+      background: linear-gradient(
+        360deg,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(77, 77, 77, 0.8) 100%
+      );
+      border-radius: 62px;
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        line-height: 50px;
+
+        .title {
+          font-size: 30px;
+        }
+
+        img {
+          width: 32px;
+          height: 32px;
+          margin-right: 11px;
+        }
+        .amount {
+          font-size: 40px;
+        }
+      }
+    }
+
+    .second-card,
+    .third-card {
+      position: absolute;
+      left: 0;
+      right: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+
+      .card-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 58px;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 24px;
+        .title {
+          margin-left: 40px;
+          font-size: 20px;
+          line-height: 30px;
+        }
+      }
+
+      .content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+        margin-top: 49px;
+
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 17px;
+        }
+
+        font-size: 60px;
+        line-height: 50px;
+
+        .btn-wrapper {
+          margin: 0 auto;
+          margin-top: 49px;
+        }
+      }
+    }
+
+    .second-card {
+      z-index: 1;
+      top: 100px;
+    }
+
+    .third-card {
+      z-index: 2;
+      top: 300px;
+      z-index: 2;
+    }
+  }
+}

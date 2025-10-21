@@ -31,7 +31,7 @@
 
   .x_door_navigation_menu {
     display: flex;
-    flex: 1;
+    // flex: 1;
     justify-content: space-around;
     list-style: none;
     margin-left: 40px;
@@ -43,11 +43,11 @@
       font-weight: 500;
       font-style: Medium;
       font-size: 24px;
+      margin: 0 10px;
       line-height: 145%;
       text-align: center;
       vertical-align: middle;
       text-transform: capitalize;
-      margin-right: 2px;
     }
 
     .navigation_link-active,

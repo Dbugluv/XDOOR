@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 // import { useResponsive } from '@/hooks/useResponsive'
 import xLogo from '@/assets/images/xdlogo.png'
-import xDoor from '@/assets/images/xdoor.png'
+import xDoor from '@/assets/images/xdoorbg.jpg'
 import './index.scss'
 
 export const Navigation = () => {
