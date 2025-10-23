@@ -13,6 +13,10 @@
   box-sizing: border-box;
   padding: 0 clamp(20px, 8vw, 200px);
   margin-bottom: 100px;
+
+  .x-door-header {
+    height: 75px;
+  }
 }
 
 .home-page-content {
@@ -111,7 +115,11 @@
 
   .long-width {
     line-height: 25px;
-    max-width: 807px;
+    margin-right: -200px;
+  }
+
+  .right-column {
+    margin-left: 240px;
   }
 
   .fomo3d-area {
@@ -209,6 +217,13 @@
 
 .second-selection {
   margin-bottom: 78px;
+
+  .x-door-header {
+    img {
+      width: 304px;
+      height: 75px;
+    }
+  }
 
   .x-door-selection {
     display: flex;

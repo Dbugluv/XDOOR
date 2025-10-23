@@ -4,6 +4,11 @@
   .x-door-header {
     display: flex;
     align-items: center;
+
+    img {
+      width: 238px;
+      height: 75px;
+    }
   }
   .count-down {
     margin-left: 116px;

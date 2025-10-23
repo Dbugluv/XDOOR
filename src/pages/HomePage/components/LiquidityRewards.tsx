@@ -171,7 +171,7 @@ export function LiquidityRewards() {
             <img src={arrow} />
           </div>
         </div>
-        <div className='home-page-column'>
+        <div className='home-page-column right-column'>
           <img className='box-coin' src={box} />
         </div>
       </div>

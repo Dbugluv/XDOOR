@@ -105,7 +105,7 @@ export function HomePage() {
             </div>
           </div>
 
-          <div className='home-page-column'>
+          <div className='home-page-column right-column'>
             <div className='fomo3d-area'>
               <div className='click-area'>
                 <div className='click-to-enter'>Click to Enter</div>

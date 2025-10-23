@@ -6,6 +6,11 @@
   letter-spacing: 0%;
   margin-bottom: 400px;
 
+  .x-door-header > img {
+    width: 373px;
+    height: 75px;
+  }
+
   .door-keeper-selection {
     display: flex;
     flex-wrap: wrap;
@@ -52,7 +57,7 @@
   .panel-wrapper {
     width: 100%;
     position: relative;
-    margin: 0 5%;
+    padding: 0 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -93,6 +98,7 @@
 
     .second-card,
     .third-card {
+      width: 90%;
       position: absolute;
       left: 0;
       right: 0;
