@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react'
+import autoprefixer from 'autoprefixer'
 import path from 'path'
-import postcssPxtorem from 'postcss-pxtorem'
+import pxtorem from 'postcss-pxtorem'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
@@ -15,24 +16,26 @@ export default defineConfig({
     port: 5001,
   },
   css: {
-    preprocessorOptions: {
-      scss: {
-        // 注意这里是 additionalData，不是 prependData
-        additionalData: `
-          @use "@/styles/pxto" as *;
-          @use "@/styles/var" as *;
-          @use "@/styles/mixin" as *;
-        `,
-      },
-    },
     postcss: {
       plugins: [
-        postcssPxtorem({
-          rootValue: 16,
-          propList: ['*'],
-          // 排除PC端组件或添加媒体查询限制
-          exclude: /(pc-|desktop)/i,
-          mediaQuery: true, // 允许在媒体查询中转换
+        autoprefixer({
+          overrideBrowserslist: ['> 1%', 'last 2 versions', 'not dead'],
+        }),
+        pxtorem({
+          rootValue: 24,
+          propList: ['*', '!border*', '!box-shadow', '!text-shadow'], // 排除某些属性
+          selectorBlackList: [
+            '.norem',
+            '.pc-',
+            '.device-desktop',
+            '.device-tablet',
+            'html',
+            'body',
+          ], // 增加更多排除类
+          replace: true,
+          mediaQuery: false,
+          minPixelValue: 2,
+          exclude: /node_modules|src[\\/]styles[\\/]pc/, // 排除 PC 端样式目录
         }),
       ],
     },

@@ -1,69 +1,87 @@
-// src/hooks/useResponsive.ts
 import { useEffect, useState } from 'react'
+import { setFlexible, removeFlexible } from '../utils/flexible'
 
 export type DeviceType = 'mobile' | 'tablet' | 'desktop'
 
 export const useResponsive = () => {
   const [deviceType, setDeviceType] = useState<DeviceType>('desktop')
-
-  // 检测真实设备类型
-  const detectRealDevice = (): 'mobile' | 'tablet' | 'desktop' => {
-    const width = window.innerWidth
-    const height = window.innerHeight
-    const userAgent = navigator.userAgent.toLowerCase()
-
-    // 用户代理检测
-    const isRealMobile =
-      /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(
-        userAgent
-      )
-    const isRealTablet = false // 暂时不考虑平板
-    // const isRealTablet = /ipad|android(?=.*mobile)/i.test(userAgent)
-
-    // 控制台检测逻辑
-    const isDevTools =
-      width < 768 && height < 600 && !isRealMobile && !isRealTablet
-
-    console.log(
-      `UA: ${userAgent}, 真实移动设备: ${isRealMobile}, 控制台 isDevTools: ${isDevTools}`
-    )
-
-    if (isDevTools) {
-      return 'desktop' // 强制识别为桌面端
-    }
-
-    // 真实设备检测优先
-    if (isRealMobile) return 'mobile'
-    if (isRealTablet) return 'tablet'
-
-    // 回退到基于尺寸的判断
-    if (width <= 768) return 'mobile'
-    if (width <= 1024) return 'tablet'
-    return 'desktop'
-  }
+  const [initialized, setInitialized] = useState(false)
 
   useEffect(() => {
-    const updateDeviceType = () => {
-      const type = detectRealDevice()
-      setDeviceType(type)
-
-      // 应用字体大小
-      const docEl = document.documentElement
+    const checkDeviceType = () => {
       const width = window.innerWidth
+      const height = window.innerHeight
 
-      if (type === 'mobile') {
-        docEl.style.fontSize = 100 * (width / 750) + 'px'
+      // 防止控制台误判
+      const isLikelyDevTools = width < 768 && height < 500
+
+      let type: DeviceType = 'desktop'
+
+      if (width <= 768 && !isLikelyDevTools) {
+        type = 'mobile'
+      } else if (width <= 1024 && !isLikelyDevTools) {
+        type = 'tablet'
       } else {
-        docEl.style.fontSize = '16px'
+        type = 'desktop'
       }
+
+      // 只有在设备类型真正改变时才更新
+      setDeviceType(prevType => {
+        if (prevType !== type) {
+          applyResponsiveSettings(prevType, type)
+          return type
+        }
+        return prevType
+      })
     }
 
-    updateDeviceType()
+    const applyResponsiveSettings = (
+      prevType: DeviceType,
+      newType: DeviceType
+    ) => {
+      // 只有在设备类型变化时才应用设置
+      if (prevType === newType && initialized) return
+
+      console.log(`设备类型变化: ${prevType} -> ${newType}`)
+
+      if (newType === 'mobile') {
+        // 移动端启用 flexible
+        setFlexible()
+        document.documentElement.classList.add('device-mobile')
+        document.documentElement.classList.remove(
+          'device-desktop',
+          'device-tablet'
+        )
+      } else {
+        // PC端和平板禁用 flexible，固定字体大小
+        removeFlexible()
+        document.documentElement.style.fontSize = '16px'
+
+        if (newType === 'desktop') {
+          document.documentElement.classList.add('device-desktop')
+          document.documentElement.classList.remove(
+            'device-mobile',
+            'device-tablet'
+          )
+        } else {
+          document.documentElement.classList.add('device-tablet')
+          document.documentElement.classList.remove(
+            'device-mobile',
+            'device-desktop'
+          )
+        }
+      }
+
+      if (!initialized) setInitialized(true)
+    }
+
+    // 初始化
+    checkDeviceType()
 
     let resizeTimer: NodeJS.Timeout
     const handleResize = () => {
       clearTimeout(resizeTimer)
-      resizeTimer = setTimeout(updateDeviceType, 100)
+      resizeTimer = setTimeout(checkDeviceType, 250) // 增加防抖时间
     }
 
     window.addEventListener('resize', handleResize)
@@ -71,8 +89,9 @@ export const useResponsive = () => {
     return () => {
       window.removeEventListener('resize', handleResize)
       clearTimeout(resizeTimer)
+      removeFlexible()
     }
-  }, [])
+  }, [initialized])
 
   return {
     deviceType,

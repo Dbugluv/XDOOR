@@ -1,12 +1,12 @@
-import { Link, useLocation } from 'react-router-dom'
-// import { useResponsive } from '@/hooks/useResponsive'
 import xLogo from '@/assets/images/xdlogo.png'
 import xDoor from '@/assets/images/xdoor.png'
+import { useResponsive } from '@/hooks/useResponsive'
+import { Link, useLocation } from 'react-router-dom'
 import './index.scss'
 
 export const Navigation = () => {
   const location = useLocation()
-  // const { isMobile } = useResponsive()
+  const { isMobile } = useResponsive()
 
   const navItems = [
     { path: '/airdrop', label: 'Airdrop' }, // 空投
